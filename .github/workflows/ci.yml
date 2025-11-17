@@ -46,7 +46,7 @@ jobs:
 
       - name: Artefakte hochladen
         run: mkdir staging && cp target/*.jar staging/
-      - uses: actions/uplload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: package
           path: staging
