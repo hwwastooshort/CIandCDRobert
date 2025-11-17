@@ -41,6 +41,16 @@ jobs:
       - name: Tests ausführen
         run: mvn test
 
+      - name: Artefakte paketieren
+        run: mvn package -DskipTests
+
+      - name: Artefakte hochladen
+        run: mkdir staging && cp target/*.jar staging/
+      - uses: actions/uplload-artifact@v4
+        with:
+          name: package
+          path: staging
+
 
 
 
