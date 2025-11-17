@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  Einrichten:
+    runs-on: ubuntu-latest
+
+    env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+
+    steps:
+      - name: Repository auschecken4
+        uses: actions/checkout@v4
+
+      - name: JDK aufsetzten
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
+      - name: Länge des Secrets ausgeben
+        run: |
+          if [ -z "$MY_SECRET" ]; then
+            echo "Das Secret ist nicht gesetzt."
+          else
+            echo "Die Länge des Secrets ist: ${#MY_SECRET}"
+          fi
+
+      - name: Maven Dependencies installieren
+        run: mvn dependency:resolve
+
+      - name: Kompilieren
+        run: mvn compile
+
+      - name: Tests ausführen
+        run: mvn test
+
+
+
+
