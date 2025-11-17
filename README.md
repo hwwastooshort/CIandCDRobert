@@ -46,7 +46,7 @@ git push -u origin main
 ### Aufgabe 1.2: Java und Maven überprüfen
 
 ```bash
-# Java Version prüfen (benötigt: Java 17)
+# Java Version prüfen (benötigt: min. Java 17)
 java -version
 
 # Maven Version prüfen
@@ -74,13 +74,8 @@ mvn compile
 mvn test
 
 # Achtung: Tests werden fehlschlagen!
-# Das ist beabsichtigt - analysiert die Fehler.
+# Das ist beabsichtigt
 ```
-
-**Analysiert die Test-Ergebnisse:**
-- Wie viele Tests schlagen fehl?
-- Welche Fehler werden angezeigt?
-- In welchen Dateien liegen die Probleme?
 
 ### Aufgabe 1.6: GitHub Actions Workflow erstellen
 
